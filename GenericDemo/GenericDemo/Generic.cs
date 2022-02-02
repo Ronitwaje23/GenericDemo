@@ -6,35 +6,36 @@ using System.Threading.Tasks;
 
 namespace GenericDemo
 {
-    internal class Generic
-    {
-        class Comparison
-        {
-            public static string FindMaxFloatNumber(string first, string second, string third)
+    
+            internal class Generic<T> where T : IComparable
             {
-                if ((first.CompareTo(second) > 0) && (first.CompareTo(third) > 0))
+                public T[] values;
+                public Generic(T[] values)
                 {
-                    return first;
+                    this.values = values;
                 }
-                else if ((second.CompareTo(first) > 0) && (second.CompareTo(third) > 0))
+                public T[] Sort(T[] values)
                 {
-                    return second;
+                    Array.Sort(values);
+                    return values;
                 }
-                else if ((third.CompareTo(second) > 0) && (third.CompareTo(first) > 0))
+                public T MaxValue(T[] values)
                 {
-                    return third;
-                }
-                else
-                {
+                    var SortedValues = Sort(values);
+                    return SortedValues[this.values.Length - 1];
 
-                    return default;
                 }
+                public T MaxMethod()
+                {
+                    var max = MaxValue(this.values);
+                    return max;
+                }
+                public void PrintMaxValue()
+                {
+                    var max = MaxValue(this.values);
+                    Console.WriteLine("Maximum value is: " + max);
+                }
+
             }
         }
-
-        internal static string FindMaxFloatNumber(string word1, string word2, string word3)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
+    

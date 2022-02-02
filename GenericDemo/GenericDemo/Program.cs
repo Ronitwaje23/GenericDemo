@@ -10,22 +10,17 @@ namespace GenericDemo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter three words:");
-            string word1 = Console.ReadLine();
-            string word2 = Console.ReadLine();
-            string word3 = Console.ReadLine();
+            int[] arr = { 1, 2, 3, 4, 5 };
+            Generic<int> obj = new Generic<int>(arr);
+            obj.PrintMaxValue();
+            string[] Stringarr = { "abc", "efg", "hij" };
 
-
-            string maxString = Generic.FindMaxFloatNumber(word1, word2, word3);
-
-            if (maxString == null)
-            {
-                Console.WriteLine("All three numbers are equal!!!");
-            }
-            else
-            {
-                Console.WriteLine("Maximum among three:" + maxString);
-            }
+            Generic<string> obj1 = new Generic<string>(Stringarr);
+            obj1.PrintMaxValue();
+            char[] Chararr = { 'a', 'b', 'c', };
+            Generic<char> obj2 = new Generic<char>(Chararr);
+            obj2.PrintMaxValue();
+            Console.ReadLine();
+        }
         }
     }
-}
