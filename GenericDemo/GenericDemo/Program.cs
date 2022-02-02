@@ -12,10 +12,11 @@ namespace GenericDemo
         {
             
             {
+
+
                 
 
-                GenericMaximum<int> first = new GenericMaximum<int>();
-                first.FindMax(1, 2, 5);
+                GenericMaximum<int> first = new GenericMaximum<int>(5, 8, 6);
 
 
 
